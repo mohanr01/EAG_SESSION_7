@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Web Content Crawler with FAISS",
+  "version": "1.0",
+  "description": "Crawls web content and stores it in a FAISS local index",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+} 
